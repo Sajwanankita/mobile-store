@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.app-layout{
+  margin-top: 90px;
+  padding: 0px 40px 0px 40px;
+}

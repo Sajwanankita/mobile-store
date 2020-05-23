@@ -1,0 +1,53 @@
+.device-image {
+    height: 500px;
+    width: 400px;
+}
+
+.device-details {
+    height: 500px;
+    /* min-width:  500px; */
+    /* padding-left: 150px; */
+}
+
+::ng-deep .add-to-cart-button {
+    margin-top: 117px;
+    margin-left: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 40px;
+    width: 410px;
+}
+
+.number {
+    padding-left: 20px;
+}
+
+.version {
+    padding-left: 20px;
+}
+
+/* .view{
+    height: 500px;
+    width: 500px;
+} */
+
+.product-image {
+    width: 90px;
+}
+
+/* .table thead th{
+    vertical-align: top;
+} */
+p {
+    font-size: 20px;
+    padding-bottom: 11px;
+}
+
+.device-name {
+    font-size: 39px;
+    padding-bottom: 6px;
+}
+
+.device-number {
+    padding-top: 4px;
+}
