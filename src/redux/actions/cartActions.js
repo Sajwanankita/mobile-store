@@ -6,7 +6,6 @@ export function loadCartSuccess(cart) {
 }
 
 export function addToCartSuccess(cartDetails) {
-    console.log("gere")
     return { type: types.ADD_TO_CART_SUCCESS, cartDetails };
 }
 
@@ -39,9 +38,7 @@ export function clearCart() {
 }
 
 export function addToCart(cartDetails) {
-    console.log("here")
     return async function (dispatch, getState) {
-        console.log("here")
         try {
             const savedCartDetails = await cartService
                 .addDeviceToCart(cartDetails);

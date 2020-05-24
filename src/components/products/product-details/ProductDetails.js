@@ -8,7 +8,7 @@ import { loadDevices } from "./../../../redux/actions/deviceActioons";
 import "./ProductDetails.css";
 
 
-function ProductDetails({
+export function ProductDetails({
   loadDevices,
   addToCart,
   loadCart,
@@ -37,9 +37,7 @@ function ProductDetails({
     }
   }, [devices.length, cart.length, loadDevices, props.device, loadCart]);
 
-
-
-  function handleAddDeviceToCart(device) {
+  const handleAddDeviceToCart = (device) => {
     const cartDetails = cart.length !== 0 ? getCartDetailsById(cart, device.id) : null;
     let updatedCartDetails;
     if (cartDetails) {
@@ -50,25 +48,19 @@ function ProductDetails({
         quantity: 1
       }
     }
-    console.log(updatedCartDetails);
     addToCart(updatedCartDetails);
 
   }
 
-  function getCartDetailsById(cart, id) {
-
-    console.log(cart);
+  const getCartDetailsById = (cart, id) => {
     return cart.find(cartDetails => cartDetails.device.id === id) || null;
   }
-
-
 
   return (
     <>
       <MDBCol >
         <img src="/image.jpg" className="float-left device-image" alt="" />
         <MDBRow>
-
           <MDBCol lg="6">
             <MDBCard className="device-details" pricing>
               <div className="price header white-text blue rounded-top">
@@ -77,7 +69,6 @@ function ProductDetails({
                   <h5 className="mb-0 device-name">{device.name}</h5>
                 </div>
               </div>
-
               <MDBCardBody className="striped mb-1">
                 <ul>
                   <li>
@@ -120,20 +111,15 @@ function ProductDetails({
                 <MDBBtn color="primary" className="add-to-cart-button" size="lg" onClick={() => handleAddDeviceToCart(device)} > Add to Cart</MDBBtn>
               </MDBCardBody>
             </MDBCard>
-
           </MDBCol>
-
         </MDBRow>
-
       </MDBCol>
-
     </>
   );
 }
 
 ProductDetails.propTypes = {
   cart: PropTypes.array.isRequired,
-  // course: PropTypes.object.isRequired,
   devices: PropTypes.array.isRequired,
   loadDevices: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
@@ -141,7 +127,7 @@ ProductDetails.propTypes = {
 
 
 
-function mapStateToProps(state, ownProps) {
+const mapStateToProps = (state, ownProps) => {
   const deviceId = ownProps.match.params.id;
   const device =
     deviceId && state.devices.length > 0 ?
@@ -157,8 +143,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 
-export function getDeviceById(devices, id) {
-  console.log(devices)
+const getDeviceById = (devices, id) => {
   return devices.find(device => device.id === id) || null;
 }
 

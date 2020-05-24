@@ -6,9 +6,10 @@ import CartDetails from "../cart-details/CartDetails";
 import { MDBBtn } from "mdbreact";
 import { toast } from "react-toastify";
 import UserContext from "../../../provider/UserProvider";
+import PropTypes from "prop-types";
 
-function Cart(props) {
-  const { loggedInUser, setLoggedInUser } = useContext(UserContext);
+export function Cart(props) {
+  const { loggedInUser } = useContext(UserContext);
 
   const {
     loadCart,
@@ -19,7 +20,6 @@ function Cart(props) {
   } = props;
 
   useEffect(() => {
-    console.log(cart.length + "length");
     if (cart.length === 0) {
       loadCart().catch(error => {
         alert("Loading cart failed" + error);
@@ -28,53 +28,46 @@ function Cart(props) {
   }, [cart.length, loadCart]);
 
 
-  function updateQuantity(quantity, cartDetails) {
-    console.log(quantity + "...............................");
-
+  const updateQuantity = (quantity, cartDetails) => {
     if (quantity === 0) {
       removeDevice(cartDetails);
     } else {
-      console.log(quantity)
       updateDeviceQuantity(quantity, { ...cartDetails }.device)
     }
-
   }
 
 
-  function updateDeviceQuantity(quantity, device) {
+  const updateDeviceQuantity = (quantity, device) => {
     debugger;
     const cartDetails = cart.length !== 0 ? getCartDetailsById(cart, device.id) : null;
     let updatedCartDetails;
     if (cartDetails) {
       updatedCartDetails = { ...cartDetails, quantity }
-      console.log("hkhhkhkhkhkhk" + updatedCartDetails);
       addToCart(updatedCartDetails);
     }
   }
 
-  function handleDecrementDevice(cartDetails) {
-    console.log("hererere");
+  const handleDecrementDevice = (cartDetails) => {
     const quantity = --cartDetails.quantity;
     updateQuantity(quantity, cartDetails);
 
   }
 
-  function handleIncrementDevice(cartDetails) {
-    console.log("hererere");
+  const handleIncrementDevice = (cartDetails) => {
     const quantity = ++cartDetails.quantity;
     updateQuantity(quantity, cartDetails);
 
   }
 
-  function getCartDetailsById(cart, id) {
+  const getCartDetailsById = (cart, id) => {
     return cart.find(cartDetails => cartDetails.device.id === id) || null;
   }
 
-  function removeDevice(cartDetails) {
+  const removeDevice = (cartDetails) => {
     removeDeviceFromCart(cartDetails.id);
   }
 
-  function getTotalItems() {
+  const getTotalItems = () => {
     let totalItems = 0;
     cart.forEach(cartDetails => {
       totalItems += cartDetails.quantity;
@@ -82,7 +75,7 @@ function Cart(props) {
     return totalItems;
   }
 
-  function getTotalPrice() {
+  const getTotalPrice = () => {
     let totalPrice = 0;
     cart.forEach(cartDetails => {
       totalPrice += cartDetails.device.price * cartDetails.quantity;
@@ -90,7 +83,7 @@ function Cart(props) {
     return totalPrice;
   }
 
-  function placeOrder() {
+  const placeOrder = () => {
     if (loggedInUser.name === "") {
       history.push("/login");
       return;
@@ -106,9 +99,7 @@ function Cart(props) {
   }
 
   return (
-
     <div className="jumbotron">
-      {/* {cart} */}
       <div class="card">
         <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Cart Details</h3>
         <div class="card-body">
@@ -141,12 +132,19 @@ function Cart(props) {
           </div>
         </div>
       </div>
-
     </div>
   );
 }
 
-function mapStateToProps(state) {
+
+Cart.propTypes = {
+  loadCart: PropTypes.func.isRequired,
+  addToCart: PropTypes.func.isRequired,
+  removeDeviceFromCart: PropTypes.func.isRequired,
+  cart: PropTypes.array.isRequired,
+};
+
+const mapStateToProps = (state) => {
   return {
     cart: state.cart
   };

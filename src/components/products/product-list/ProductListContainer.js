@@ -12,20 +12,17 @@ import {
 } from "mdbreact";
 
 
-function ProductListContainer(props) {
+export function ProductListContainer(props) {
 
 
     const {
         loadDevices,
         addToCart,
-        loadCart,
         cart
     } = props;
 
-    // const [devices, setDevices] = useState([...props.devices]);
     const [seachText, setSeachText] = useState("");
     const [isEmpty, setIsempty] = useState(true);
-    const [change, setChange] = useState(false);
     const [array, setArray] = useState([]);
 
     const [paginationAttributes, setPaginationAttributes] = useState({
@@ -54,7 +51,7 @@ function ProductListContainer(props) {
         // const postData = slice;
         console.log('post data');
         console.log(postData);
-    
+
 
         setPagination({
             ...pagination,
@@ -137,31 +134,8 @@ function ProductListContainer(props) {
 
     function search(event) {
         const inputText = event.target.value;
-        setSeachText(event.target.value);
-        let filteredDevices = [];
         setSeachText(inputText);
-
         setPaginationAttributes({ ...paginationAttributes, searchParam: event.target.value });
-        // if (inputText !== "") {
-        //     filteredDevices = [...pagination.postData].filter(device => device.name.toLowerCase().includes(inputText.toLowerCase()));
-        //     // setDevices([...filteredDevices]);
-
-        //     setPagination({
-        //         ...pagination,
-        //         postData: [...filteredDevices]
-        //     })
-        // } else {
-        //     filteredDevices = [...pagination.postData]
-        //     // setDevices([...pagination.postData])
-        //     setPagination({
-        //         ...pagination,
-        //         postData: filteredDevices
-        //     })
-
-        // }
-        // setArray([...filteredDevices]);
-        // receivedData();
-
     }
 
     return (
@@ -173,7 +147,7 @@ function ProductListContainer(props) {
                 </span>
                 <MDBDropdown className="drop-dwon">
                     <MDBDropdownToggle caret color="ins" className="hello">
-                        Sort By :  &nbsp; &nbsp; &nbsp;
+                        Sort By Price :  &nbsp;
                      </MDBDropdownToggle>
                     <MDBDropdownMenu color="ins" basic>
                         <MDBDropdownItem onClick={() => sort('ASC')} >Price: High to Low</MDBDropdownItem>
@@ -183,10 +157,6 @@ function ProductListContainer(props) {
             </div>
 
             <MDBRow>
-                {/* {devices.length === 0 && !isEmpty && <div className="jumbotron error-message">
-                        We couldn't find any matches!
-                        Please check the spelling or try searching something else
-            </div>} */}
                 {[...pagination.postData].map(device => {
                     return (
                         <MDBCol md='3' key={device.id} className="product-card">
@@ -215,14 +185,13 @@ function ProductListContainer(props) {
                 })}
                 <br></br>
             </MDBRow>
-
             <ReactPaginate
                 previousLabel={"prev"}
                 nextLabel={"next"}
                 breakLabel={"..."}
                 breakClassName={"break-me"}
-                pageCount={paginationAttributes.pageCount}
-                marginPagesDisplayed={2}
+                pageCount={pagination.pageCount}
+                marginPagesDisplayed={4}
                 pageRangeDisplayed={5}
                 onPageChange={handlePageClick}
                 containerClassName={"pagination"}

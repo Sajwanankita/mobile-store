@@ -3,6 +3,7 @@ import './Login.css'
 import { MDBBtn } from 'mdbreact';
 import { toast } from "react-toastify";
 import UserContext from '../../provider/UserProvider';
+import * as userService from "./../../core/services/userService";
 
 const validateForm = errors => {
   let valid = true;
@@ -43,13 +44,13 @@ export default class Login extends React.Component {
     switch (name) {
       case 'username':
         errors.username = value.length === 0 ? 'User Name is required' : value.length < 5
-          ? 'User Name must be at least 5 characters long!'
+          ? 'User Name must be at least 5 characters long'
           : '';
         break;
       case 'password':
         errors.password = value.length === 0 ? 'Passsword is required' :
           value.length < 5
-            ? 'Password must be at least 5 characters long!'
+            ? 'Password must be at least 5 characters long'
             : '';
         break;
       default:
@@ -60,7 +61,7 @@ export default class Login extends React.Component {
 
 
   validateUser() {
-    fetch("http://localhost:3001/users").then(resp => resp.json()).then(users => {
+    userService.fetchUsers().then(users => {
       let authUser = users.find(user => user.name
         === this.state.username) || null;
       if (authUser && authUser.name === this.state.username && authUser.password === this.state.password) {
@@ -71,6 +72,7 @@ export default class Login extends React.Component {
           },
           isLoggedIn: true
         });
+        toast.success("Logged in successfully");
         this.props.history.push("/products")
       } else {
         this.context.setLoggedInUser({

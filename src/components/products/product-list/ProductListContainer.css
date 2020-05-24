@@ -65,9 +65,11 @@
 
 .pagination {
     margin: 15px auto;
+    margin-top: 80px;
     display: flex;
     list-style: none;
     outline: none;
+    width: 400px;
   }
   .pagination > .active > a{
     background-color: #47ccde ;
@@ -84,10 +86,13 @@
     background-color: #47ccde ;
     border-color: #47ccde;
     outline: none ;
+ 
   }
   .pagination > li > a, .pagination > li > span{
-    color: #47ccde
+    color: #47ccde;
+    height: 90px;
+    width: 90px;
   }
   .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
-    border-radius: unset
+    border-radius: unset;
   }

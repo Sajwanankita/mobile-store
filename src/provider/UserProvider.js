@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 const UserContext = React.createContext()
 
 class UserProvider extends Component {
-    // Context state
     state = {
         loggedInUser: {
             name: "",

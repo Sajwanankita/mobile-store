@@ -83,9 +83,9 @@ const devices = [
     operatingSystem: "Android v8.1 (Oreo)",
     ram: "4 GB",
     storage: "128 GB",
-    price: 2000
+    price: 76600
   },
-  {
+  { 
     id: "9",
     name: "Huawei P30 Pro.",
     modelNumber: "SM-M307FZBGINS",
@@ -94,7 +94,7 @@ const devices = [
     operatingSystem: "Android v8.1 (Oreo)",
     ram: "4 GB",
     storage: "128 GB",
-    price: 5000
+    price: 56600
   },
   {
     id: "10",
@@ -105,7 +105,7 @@ const devices = [
     operatingSystem: "Android 9.0 (Pie)",
     ram: "4 GB",
     storage: "128 GB",
-    price: 1700
+    price: 65300
   },
   {
     id: "11",
@@ -116,7 +116,7 @@ const devices = [
     operatingSystem: "Android 9.0 (Pie); MIUI 9",
     ram: "4 GB",
     storage: "128 GB",
-    price: 9000
+    price: 45500
   },
   {
     id: "12",
@@ -127,7 +127,7 @@ const devices = [
     operatingSystem: "Android v9.0 (Pie)",
     ram: "4 GB",
     storage: "128 GB",
-    price: 1700
+    price: 34400
   }, {
     id: "13",
     name: "Xiaomi Redmi Note 9 Pro",
@@ -137,7 +137,7 @@ const devices = [
     operatingSystem: "Android v9.0 (Pie)",
     ram: "4 GB",
     storage: "128 GB",
-    price: 8800
+    price: 64400
   },
   {
     id: "14",
@@ -148,7 +148,7 @@ const devices = [
     operatingSystem: "Android 9.0 (Pie); MIUI 10",
     ram: "4 GB",
     storage: "128 GB",
-    price: 3400
+    price: 85500
   }, {
     id: "15",
     name: "Samsung Galaxy S20 Plus",
@@ -158,7 +158,7 @@ const devices = [
     operatingSystem: "Android v9.0 (Pie)",
     ram: "4 GB",
     storage: "128 GB",
-    price: 12000
+    price: 94600
   },
   {
     id: "16",
@@ -169,7 +169,7 @@ const devices = [
     operatingSystem: "Android v10 (Q)",
     ram: "4 GB",
     storage: "128 GB",
-    price: 2000
+    price: 2590
   },
   {
     id: "17",
@@ -180,7 +180,7 @@ const devices = [
     operatingSystem: "Android 10.0; One UI 2",
     ram: "4 GB",
     storage: "128 GB",
-    price: 12000
+    price: 35800
   },
   {
     id: "18",
@@ -191,41 +191,756 @@ const devices = [
     operatingSystem: "Android 10.0",
     ram: "4 GB",
     storage: "128 GB",
-    price: 2000
+    price: 25300
+  },
+  {
+    id: "19",
+    name: "Vivo V17",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android",
+    ram: "4 GB",
+    storage: "4GB RAM, 64GB Storage",
+    price: 55400
+  },
+  {
+    id: "20",
+    name: "Vivo Z1x	",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 25800
+  },
+  {
+    id: "21",
+    name: "Vivo V17 Pro",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 34659
+  },
+  {
+    id: "22",
+    name: "Vivo Z1x",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v8.1 (Oreo)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 65500
+  }, {
+    id: "23",
+    name: "Vivo S1",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v8.1 (Oreo)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 88300
+  },
+  {
+    id: "24",
+    name: "Vivo V17 Pro",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v8.1 (Oreo)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 34600
+  }, {
+    id: "25",
+    name: "Vivo Y15 2019",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v8.1 (Oreo)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 125000
+  },
+  {
+    id: "26",
+    name: "Vivo Y11 2019",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v8.1 (Oreo)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 21000
+  },
+  {
+    id: "27",
+    name: "Vivo Y91i",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v8.1 (Oreo)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 50500
+  },
+  {
+    id: "28",
+    name: "Vivo Z1 Pro",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 9.0 (Pie)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 17900
+  },
+  {
+    id: "29",
+    name: "Redmi Note 9 Pro Max",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 9.0 (Pie); MIUI 9",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 9500
+  },
+  {
+    id: "30",
+    name: "Redmi Note 9 Pro",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v9.0 (Pie)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 17500
+  }, {
+    id: "31",
+    name: "Redmi K30 5G Racing Edition",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v9.0 (Pie)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 88500
+  },
+  {
+    id: "32",
+    name: "Xiaomi Redmi Note 8",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 9.0 (Pie); MIUI 10",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 35000
+  }, {
+    id: "33",
+    name: "Xiaomi Redmi 8A",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v9.0 (Pie)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 12500
+  },
+  {
+    id: "34",
+    name: "Xiaomi Redmi K20 Pro",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v10 (Q)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 24900
+  },
+  {
+    id: "35",
+    name: "Xiaomi Redmi Note 7S",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 10.0; One UI 2",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 129000
+  },
+  {
+    id: "36",
+    name: "Xiaomi Redmi Note 6 Pro",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 10.0",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 20000
+  },
+  {
+    id: "37",
+    name: "Xiaomi Redmi Note 5 Pro",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android",
+    ram: "4 GB",
+    storage: "4GB RAM, 64GB Storage",
+    price: 34000
+  },
+  {
+    id: "38",
+    name: "Xiaomi Redmi Note 4",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 29000
+  },
+  {
+    id: "39",
+    name: "Google Pixel 2 128GB",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 7800
+  },
+  {
+    id: "40",
+    name: "Google Pixel 3 XL",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v8.1 (Oreo)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 59000
+  }, {
+    id: "41",
+    name: "Google Pixel 4",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v8.1 (Oreo)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 73000
+  },
+  {
+    id: "42",
+    name: "Google Pixel XL",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v8.1 (Oreo)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 83000
+  }, {
+    id: "43",
+    name: "Motorola One ActionL",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v8.1 (Oreo)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 16000
+  },
+  {
+    id: "44",
+    name: "Motorola One Vision",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v8.1 (Oreo)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 28000
+  },
+  {
+    id: "45",
+    name: "Motorola One Macro",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v8.1 (Oreo)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 39000
+  },
+  {
+    id: "46",
+    name: "Motorola One Power (P30 Note)",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 9.0 (Pie)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 8999
+  },
+  {
+    id: "47",
+    name: "Moto X4",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 9.0 (Pie); MIUI 9",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 89999
+  },
+  {
+    id: "48",
+    name: "Moto G5 Plus",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v9.0 (Pie)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 35000
+  }, {
+    id: "49",
+    name: "Motorola One",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v9.0 (Pie)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 88000
+  },
+  {
+    id: "50",
+    name: "Realme C3",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 9.0 (Pie); MIUI 10",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 34999
+  }, {
+    id: "52",
+    name: "Realme 5i 128GB",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v9.0 (Pie)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 65999
+  },
+  {
+    id: "52",
+    name: "Realme 6 Pro 8GB RAM",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v10 (Q)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 56000
+  },
+  {
+    id: "53",
+    name: "Realme X2 8GB RAM",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 10.0; One UI 2",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 28000
+  },
+  {
+    id: "54",
+    name: "Realme 6 8GB RAM",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 10.0",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 43000
+  },
+  {
+    id: "55",
+    name: "Realme 2 Pro",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 9.0 (Pie)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 9000
+  },
+  {
+    id: "56",
+    name: "Google Pixel 4 XL",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 9.0 (Pie); MIUI 9",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 23777
+  },
+  {
+    id: "57",
+    name: "Google Pixel 3 XL",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v9.0 (Pie)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 65000
+  }, {
+    id: "58",
+    name: "Google Pixel 2 128GB",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v9.0 (Pie)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 45999
+  },
+  {
+    id: "59",
+    name: "Google Pixel XL 128GB",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 9.0 (Pie); MIUI 10",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 84000
+  }, {
+    id: "60",
+    name: "Google Pixel 3A XL",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v9.0 (Pie)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 38000
+  },
+  {
+    id: "61",
+    name: "Google Pixel 3A XL",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v10 (Q)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 34000
+  },
+  {
+    id: "62",
+    name: "Google Pixel 2 128GB",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 10.0; One UI 2",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 27999
+  },
+  {
+    id: "63",
+    name: "Huawei P30 Lite",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 10.0",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 18000
+  },
+  {
+    id: "64",
+    name: "Huawei P9",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v9.0 (Pie)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 29000
+  },
+  {
+    id: "65",
+    name: "Huawei P40 Pro Plus",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v10 (Q)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 34000
+  },
+  {
+    id: "66",
+    name: "Huawei Nova 7 Pro",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 10.0; One UI 2",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 5700
+  },
+  {
+    id: "67",
+    name: "Huawei Nova 7",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 10.0",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 92000
+  }
+  ,
+  {
+    id: "68",
+    name: "Huawei Mate X",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 9.0 (Pie); MIUI 9",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 430000
+  },
+  {
+    id: "69",
+    name: "Huawei Nova 7 SE",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v9.0 (Pie)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 98000
+  }, {
+    id: "70",
+    name: "Samsung Galaxy A20",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v9.0 (Pie)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 8000
+  },
+  {
+    id: "71",
+    name: "Samsung Galaxy S10e",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 9.0 (Pie); MIUI 10",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 20000
+  }, {
+    id: "72",
+    name: "Samsung Galaxy J4 Core",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v9.0 (Pie)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 67000
+  },
+  {
+    id: "73",
+    name: "Samsung Galaxy On6",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v10 (Q)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 23000
+  },
+  {
+    id: "74",
+    name: "Honor 9X Pro",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 10.0; One UI 2",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 17999
+  },
+  {
+    id: "75",
+    name: "Honor 10 Lite",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 10.0",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 56000
+  },
+  {
+    id: "76",
+    name: "Honor 8X",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v9.0 (Pie)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 12000
+  },
+  {
+    id: "77",
+    name: "Honor 8X Pro Max",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v10 (Q)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 27000
+  },
+  {
+    id: "78",
+    name: "Honor 9N NOVA",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 10.0; One UI 2",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 29999
+  },
+  {
+    id: "79",
+    name: "Honor 9N Pro Max",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 10.0",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 10000
+  },
+  {
+    id: "80",
+    name: "iPhone 8 Plus",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 10.0",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 45000
+  }
+  ,
+  {
+    id: "81",
+    name: "Apple iPhone XR",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 10.0",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 75000
+  },
+  {
+    id: "82",
+    name: "OPPO Reno3 Pro",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android v10 (Q)",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 19000
+  },
+  {
+    id: "82",
+    name: "OPPO F15",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 10.0; One UI 2",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 25000
+  },
+  {
+    id: "83",
+    name: "OPPO D19 Max",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 10.0",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 50000
+  },
+  {
+    id: "84",
+    name: "OPPO A5 2020",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 10.0",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 5000
+  }
+  ,
+  {
+    id: "85",
+    name: "OPPO Reno 2F",
+    modelNumber: "SM-M307FZBGINS",
+    colors: ["Red", "Blue"],
+    screenSize: "5 inch",
+    operatingSystem: "Android 10.0",
+    ram: "4 GB",
+    storage: "128 GB",
+    price: 19999
   }
 ];
 
-
 const cart = [];
-
-
-
-// const cart = [{
-//   id: "1",
-//   cartDetails: [
-//     {
-//       device: {
-//         id: "8",
-//         name: "I Phone 1",
-//         modelNumber: "SM-M307FZBGINS",
-//         colors: ["Red", "Blue"],
-//         screenSize: "5 inch",
-//         operatingSystem: "Android",
-//         ram: "4 GB",
-//         storage: "128 GB",
-//         price: "$500"
-//       },
-//       quantity: 1
-//     }]
-// }];
-
 
 const users = [{
   name: 'admin',
   password: 'admin'
 }];
 
-// Using CommonJS style export so we can consume via Node (without using Babel-node)
 module.exports = {
   devices,
   cart,

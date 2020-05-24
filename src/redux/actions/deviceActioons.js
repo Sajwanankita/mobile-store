@@ -10,7 +10,6 @@ export function loadDevices() {
         return deviceService
             .fetchDevices()
             .then(devices => {
-                console.log(devices)
                 dispatch(loadDevicesSuccess(devices));
             })
             .catch(error => {

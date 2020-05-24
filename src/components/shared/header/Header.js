@@ -3,22 +3,16 @@ import { withRouter } from 'react-router-dom'
 import PropTypes from "prop-types";
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBBtn, MDBCollapse, MDBNavItem, MDBNavLink, MDBContainer, MDBMask, MDBView, MDBIcon, MDBNav, MDBBtnGroup, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from 'mdbreact';
 import UserContext from '../../../provider/UserProvider';
-// import { BrowserRouter as Router } from 'react-router-dom';
-const bgPink = { backgroundColor: '#3f51b5' }
+const headerColor = { backgroundColor: '#3f51b5' }
 
-// const bgPink = { si: '#e91e63' }
 function Header(props) {
     const { loggedInUser, setLoggedInUser } = useContext(UserContext);
     const {
         history
     } = props;
-    //   const { user, setUser } = this.context;
     function handleClick() {
         history.push("/login");
     };
-
-    console.log("loggedInUser header");
-    console.log(loggedInUser);
 
     function logoutUser() {
         setLoggedInUser({
@@ -30,7 +24,7 @@ function Header(props) {
     }
 
     return (<header>
-        <MDBNavbar style={bgPink} dark expand="md" scrolling fixed="top">
+        <MDBNavbar style={headerColor} dark expand="md" scrolling fixed="top">
             <MDBNavbarBrand href="/">
                 <strong>Go To Mobile Store</strong>
             </MDBNavbarBrand>
@@ -38,7 +32,7 @@ function Header(props) {
                 <MDBNavbarNav right>
                     {loggedInUser.name && <MDBNavItem>
                         <MDBDropdown>
-                            <MDBDropdownToggle caret color="primary" >   {loggedInUser.name}</MDBDropdownToggle>
+                            <MDBDropdownToggle caret color="primary" > {loggedInUser.name}</MDBDropdownToggle>
                             <MDBDropdownMenu right color="primary">
                                 <MDBDropdownItem onClick={logoutUser} >Logout</MDBDropdownItem>
                             </MDBDropdownMenu>
@@ -47,7 +41,6 @@ function Header(props) {
                     {!loggedInUser.name && <MDBNavItem>
                         <MDBBtn onClick={handleClick} color="primary" rounded>Login</MDBBtn>
                     </MDBNavItem>}
-
                     <MDBNavItem>
                         <MDBNavLink to="/cart"><MDBIcon fas icon="cart-plus fa-2x" /></MDBNavLink>
                     </MDBNavItem>

@@ -28,7 +28,6 @@ export default function cartReducer(state = initialState.cart, action) {
             toast.error("Error in updating quantity of to cart");
             return state;
         case types.CLEAR_CART:
-            console.log("clear...............");
             state = initialState.cart;
             return state;
         default:

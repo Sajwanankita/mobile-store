@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { addToCart, loadCart } from "../../../redux/actions/cartActions"
 import "./CartDetails.css";
 
-function CartDetails(props) {
+export function CartDetails(props) {
 
     const { onRemoveCartDetails,
         cartDetails,
@@ -41,14 +41,14 @@ function CartDetails(props) {
                             type="number" />
                         <button className="plus" onClick={() => onIncrementDevice(cartDevices)}></button>
                     </div>
-                    <button type="button"
+                    <button type="button" id={"update-button"}
                         class="btn btn-primary btn-rounded btn-sm my-0" onClick={() => onUpdateQuantity(quantity, cartDevices)}>Update</button>
                 </div>
             </td>
             <td class="pt-3-half" >{cartDevices.device.price}</td>
             <td class="pt-3-half" >{cartDevices.device.price * cartDevices.quantity}</td>
             <td>
-                <span class="table-remove"><button type="button"
+                <span class="table-remove"><button type="button" id={"btn-danger"}
                     class="btn btn-danger btn-rounded btn-sm my-0" onClick={() => onRemoveCartDetails(cartDevices)}>Remove</button></span>
             </td>
         </tr>

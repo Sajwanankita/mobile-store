@@ -20,11 +20,9 @@ const store = configureStore();
 
 ReactDOM.render(
   <ReduxProvider store={store}>
-    {/* <UserProvider value={null}> */}
     <Router>
       <App />
     </Router>
-    {/* </UserProvider> */}
   </ReduxProvider>,
   document.getElementById('root')
 );
