@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { addToCart, loadCart } from "./../../redux/actions/cartActions"
-import "./Cart.css";
+import { addToCart, loadCart } from "../../../redux/actions/cartActions"
+import "./CartDetails.css";
 
 function CartDetails(props) {
 

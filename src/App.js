@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import LoginPage from "./components/login/Login"
 import ProductDetails from "./components/products/product-details/ProductDetails";
 import Header from "./components/shared/header/Header";
-import Cart from "./components/cart/Cart";
+import Cart from "./components/cart/cart-container/Cart";
 import "./App.css"
 import { UserProvider } from "./provider/UserProvider";
 import ProductListContainer from "./components/products/product-list/ProductListContainer";

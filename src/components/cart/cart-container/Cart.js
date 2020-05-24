@@ -1,11 +1,11 @@
 import React, { useEffect, useContext } from "react";
 import { connect } from "react-redux";
-import { addToCart, loadCart, removeDeviceFromCart } from "./../../redux/actions/cartActions"
+import { addToCart, loadCart, removeDeviceFromCart } from "../../../redux/actions/cartActions"
 import "./Cart.css";
-import CartDetails from "./CartDetails";
+import CartDetails from "../cart-details/CartDetails";
 import { MDBBtn } from "mdbreact";
 import { toast } from "react-toastify";
-import UserContext from "../../provider/UserProvider";
+import UserContext from "../../../provider/UserProvider";
 
 function Cart(props) {
   const { loggedInUser, setLoggedInUser } = useContext(UserContext);
