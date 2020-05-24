@@ -1,30 +1,127 @@
-.login-container {
-    margin: 100px 200px 200px 350px;
-    width: 50%;
-    border: 2px solid gainsboro;
-    border-radius: 8px;
+
+p,
+div {
+    font-family: Lato;
+}
+
+.wrapper {
+    height: 97vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-wrapper {
+    margin-bottom: 100px;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    min-width: 100px;
+    min-height: 330px;
+    padding: 20px 40px;
+    border-radius: 6px;
+    box-shadow: 0px 8px 36px #222;
+    background-color: #fefefe;
+}
+
+.form-wrapper > h2 {
+    display: flex;
+    justify-content: center;
+    font-family: 'Segoe UI', 'Ubuntu', 'Roboto', 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 2em;
+    font-weight: lighter;
+    margin-top: 0.25em;
+    color: #222;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.info {
+    padding-bottom: 1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+label {
+    margin-bottom: 0.5em;
+    color: #444;
+    font-weight: lighter;
+}
+
+input {
+    padding: 10px 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #d6d1d5;
+}
+
+input::placeholder {
+    font-size: 1.2em;
+    font-weight: lighter;
+    color: #bbb;
+}
+
+button {
+    cursor: pointer;
+    margin-right: 0.25em; 
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fefefe;
+}
+button:hover {
+    background-color: #007bff;
+    color: #fefefe;
+}
+
+input.error {
+    border: 1px solid #eadae4;
+}
+
+.error {
+    color: #db2269;
     font-size: 16px;
+    display: relative;
 }
 
-.login-layout {
-    padding: 50px;
+.username {
+    margin-right: 1%;
 }
 
-.hello {
-    margin-bottom: -0px;
+.username,
+.email,
+.password {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
 }
 
-.signin-title {
-    font-size: 1.5rem;
-    font-weight: 500;
-    text-align: center !important;
+.username {
+    width: 100%;
 }
 
-.validation-error {
-    color: red;
-    margin-left: 38px;
+.email,
+.password {
+    width: 100%;
 }
 
-.text-center{
-    padding-top: 20px;
+.submit {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+btn {
+    margin-right: -11px;
+    margin-top: 42px;
+    height: 59px;
+    color: white;
+    font-size: 20px;
 }

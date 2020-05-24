@@ -219,8 +219,15 @@ const cart = [];
 //     }]
 // }];
 
+
+const users = [{
+  name: 'admin',
+  password: 'admin'
+}];
+
 // Using CommonJS style export so we can consume via Node (without using Babel-node)
 module.exports = {
   devices,
-  cart
+  cart,
+  users
 };

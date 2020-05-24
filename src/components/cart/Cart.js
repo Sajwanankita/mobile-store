@@ -1,24 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import { connect } from "react-redux";
 import { addToCart, loadCart, removeDeviceFromCart } from "./../../redux/actions/cartActions"
 import "./Cart.css";
 import CartDetails from "./CartDetails";
 import { MDBBtn } from "mdbreact";
 import { toast } from "react-toastify";
+import UserContext from "../../provider/UserProvider";
 
 function Cart(props) {
+  const { loggedInUser, setLoggedInUser } = useContext(UserContext);
 
   const {
     loadCart,
     addToCart,
     removeDeviceFromCart,
-    cart
+    cart,
+    history
   } = props;
 
-  // const [cart, setCart] = useState([...props.cart]);
-
   useEffect(() => {
-    // console.log(cart.length + "lenttghghg")
+    console.log(cart.length + "length");
     if (cart.length === 0) {
       loadCart().catch(error => {
         alert("Loading cart failed" + error);
@@ -38,10 +39,6 @@ function Cart(props) {
     }
 
   }
-
-  // function removeDeviceFromCart(cartDetails) {
-  //   console.log(cartDetails);
-  // }
 
 
   function updateDeviceQuantity(quantity, device) {
@@ -74,9 +71,6 @@ function Cart(props) {
   }
 
   function removeDevice(cartDetails) {
-    console.log('remove');
-    console.log(cartDetails);
-
     removeDeviceFromCart(cartDetails.id);
   }
 
@@ -91,18 +85,24 @@ function Cart(props) {
   function getTotalPrice() {
     let totalPrice = 0;
     cart.forEach(cartDetails => {
-      totalPrice += cartDetails.device.price * cartDetails.quantity ;
+      totalPrice += cartDetails.device.price * cartDetails.quantity;
     })
     return totalPrice;
   }
 
   function placeOrder() {
-    const orderNumber= 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    if (loggedInUser.name === "") {
+      history.push("/login");
+      return;
+    }
+    const orderNumber = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
       var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r && 0x3 | 0x8);
       return v.toString(16);
     });
     toast.success("Your orde with order id" + orderNumber + "has been placed succesfully");
-    clearCart();
+    cart.forEach(cartDetails => {
+      removeDeviceFromCart(cartDetails.id);
+    })
   }
 
   return (
@@ -137,7 +137,7 @@ function Cart(props) {
         <div class="card cart-total">
           <span class="card-header text-right font-weight-bold py-4 price">Sub Total ({getTotalItems()}) device(s) :  &#x20b9;  <span>{getTotalPrice()}  </span> </span>
           <div>
-            <MDBBtn color="primary" className="order-button" size="lg" onClick={placeOrder}> Place Order </MDBBtn>
+            {cart.length !== 0 && <MDBBtn color="primary" className="order-button" size="lg" onClick={placeOrder}> Place Order </MDBBtn>}
           </div>
         </div>
       </div>
@@ -155,8 +155,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
   loadCart,
   addToCart,
-  removeDeviceFromCart,
-  clearCart
+  removeDeviceFromCart
 };
 
 export default connect(

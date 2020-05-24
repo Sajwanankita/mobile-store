@@ -39,7 +39,6 @@ export function clearCart() {
 }
 
 export function addToCart(cartDetails) {
-    debugger;
     console.log("here")
     return async function (dispatch, getState) {
         console.log("here")

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { loadDevices } from "./../../../redux/actions/deviceActioons"
-import { addToCart, loadCart } from "./../../../redux/actions/cartActions"
+import { loadDevices } from "../../../redux/actions/deviceActioons"
+import { addToCart, loadCart } from "../../../redux/actions/cartActions"
 import PropTypes from "prop-types";
 import "./ProductListContainer.css";
+import ReactPaginate from 'react-paginate';
 
 import { InputText } from 'primereact/inputtext';
 import {
@@ -24,6 +25,7 @@ function ProductListContainer(props) {
 
     const [devices, setDevices] = useState([...props.devices]);
     const [seachText, setSeachText] = useState("");
+    const [isEmpty, setIsempty] = useState(true);
 
     useEffect(() => {
         if (props.devices.length === 0) {
@@ -32,6 +34,7 @@ function ProductListContainer(props) {
             });
         } else {
             setDevices([...props.devices])
+            setIsempty(false);
         }
         if (cart.length === 0) {
             loadCart().catch(error => {
@@ -86,13 +89,12 @@ function ProductListContainer(props) {
 
     return (
         <>
-          
-                <div className="app">
-                    <span className="p-float-label here">
-                        <InputText id="in" className="hey" onChange={(e) => search(e)} />
-                        {seachText === "" && <label htmlFor="in">Search here...</label>}
-                    </span>            
-                    <MDBDropdown className="drop-dwon">
+            <div className="app">
+                <span className="p-float-label here">
+                    <InputText id="in" className="hey" onChange={(e) => search(e)} />
+                    {seachText === "" && <label htmlFor="in">Search here...</label>}
+                </span>
+                <MDBDropdown className="drop-dwon">
                     <MDBDropdownToggle caret color="ins" className="hello">
                         Sort By :  &nbsp; &nbsp; &nbsp;
                      </MDBDropdownToggle>
@@ -101,30 +103,24 @@ function ProductListContainer(props) {
                         <MDBDropdownItem onClick={() => sort('DESC')}>Price: Low to High</MDBDropdownItem>
                     </MDBDropdownMenu>
                 </MDBDropdown>
-                </div>
-    
+            </div>
+
             <MDBRow>
-
-
-
+            {devices.length === 0 && !isEmpty && <div className="jumbotron error-message">
+                We couldn't find any matches!
+                Please check the spelling or try searching something else
+            </div>}
                 {devices.map(device => {
                     return (
-
-
                         <MDBCol md='3' key={device.id} className="product-card">
                             <MDBCard wide cascade>
                                 <MDBView cascade>
-
-
-
-                                    {/* <i class="fa fa-mobile fa-9x" aria-hidden="true"></i> */}
                                     <MDBCardImage
                                         cascade
                                         src="/image.jpg"
                                         top
                                         alt="sample photo"
                                     />
-
                                 </MDBView>
 
                                 <MDBCardBody cascade className='text-center blue-text'>

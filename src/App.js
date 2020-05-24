@@ -6,7 +6,7 @@ import Header from "./components/shared/header/Header";
 import Cart from "./components/cart/Cart";
 import "./App.css"
 import { UserProvider } from "./provider/UserProvider";
-import ProductListContainer from "./components/products/product-list/product-list-container";
+import ProductListContainer from "./components/products/product-list/ProductListContainer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -25,7 +25,7 @@ function App() {
         </Switch>
       </div>
       </UserProvider>
-      <ToastContainer autoClose={3000} hideProgressBar></ToastContainer>
+      <ToastContainer autoClose={2000} hideProgressBar></ToastContainer>
     </div>
   );
 }

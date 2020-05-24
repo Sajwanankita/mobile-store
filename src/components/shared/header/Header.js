@@ -8,7 +8,7 @@ const bgPink = { backgroundColor: '#3f51b5' }
 
 // const bgPink = { si: '#e91e63' }
 function Header(props) {
-    const {loggedInUser, setLoggedInUser} = useContext(UserContext);
+    const { loggedInUser, setLoggedInUser } = useContext(UserContext);
     const {
         history
     } = props;
@@ -17,13 +17,22 @@ function Header(props) {
         history.push("/login");
     };
 
-console.log("loggedInUser header");
-console.log(loggedInUser);
+    console.log("loggedInUser header");
+    console.log(loggedInUser);
+
+    function logoutUser() {
+        setLoggedInUser({
+            loggedInUser: {
+                name: "",
+                password: ""
+            }, isLoggedIn: false
+        });
+    }
 
     return (<header>
         <MDBNavbar style={bgPink} dark expand="md" scrolling fixed="top">
             <MDBNavbarBrand href="/">
-                <strong>Mobile Store</strong>
+                <strong>Go To Mobile Store</strong>
             </MDBNavbarBrand>
             <MDBCollapse isOpen={false} navbar>
                 <MDBNavbarNav right>
@@ -31,7 +40,7 @@ console.log(loggedInUser);
                         <MDBDropdown>
                             <MDBDropdownToggle caret color="primary" >   {loggedInUser.name}</MDBDropdownToggle>
                             <MDBDropdownMenu right color="primary">
-                                <MDBDropdownItem >Logout</MDBDropdownItem>
+                                <MDBDropdownItem onClick={logoutUser} >Logout</MDBDropdownItem>
                             </MDBDropdownMenu>
                         </MDBDropdown>
                     </MDBNavItem>}

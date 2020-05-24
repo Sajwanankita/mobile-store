@@ -1,94 +1,138 @@
-import React, { useState, useEffect, useContext } from "react";
-import { useForm } from "react-hook-form";
-import PropTypes from "prop-types";
-import './../login/Login.css';
-import UserContext from './../../provider/UserProvider';
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn } from "mdbreact";
+import React from 'react';
+import './Login.css'
+import { MDBBtn } from 'mdbreact';
+import { toast } from "react-toastify";
+import UserContext from '../../provider/UserProvider';
 
-// function handleResetForm(formData) {
-//   formData = null;
-//   console.log("here");
-//   // reset();
-// }
+const validateForm = errors => {
+  let valid = true;
+  Object.values(errors).forEach(val => val.length > 0 && (valid = false));
+  return valid;
+};
+
+export default class Login extends React.Component {
 
 
-
-export default function LoginPage(props) {
-  const { register, handleSubmit, errors, clearError } = useForm();
-
-  const {
-    history
-  } = props;
-
-  const [user, setUser] = useState({});
-  let [isInvalidUser, setIsInvalidUser] = useState(false);
-  const { loggedInUser, setLoggedInUser } = useContext(UserContext);
-
-  console.log("loggedInUser");
-  // clearError();
-
-  function handleResetForm() {
-    setUser({ username: "", password: "" });
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: null,
+      password: null,
+      errors: {
+        username: '',
+        password: '',
+      },
+      validUser: {
+        name: "",
+        password: ""
+      },
+      isLoggedIn: false
+    };
   }
 
-  function handleSubmitForm(formData) {
-    console.log("The status of formData", formData);
+  componentDidMount() {
+    let value = this.context;
+    this.setState({ validUser: value.loggedInUser });
+  }
+
+  handleChange = (event) => {
+    event.preventDefault();
+    const { name, value } = event.target;
+    let errors = this.state.errors;
+    this.setState({ disable: false });
+
+    switch (name) {
+      case 'username':
+        errors.username = value.length === 0 ? 'User Name is required' : value.length < 5
+          ? 'User Name must be at least 5 characters long!'
+          : '';
+        break;
+      case 'password':
+        errors.password = value.length === 0 ? 'Passsword is required' :
+          value.length < 5
+            ? 'Password must be at least 5 characters long!'
+            : '';
+        break;
+      default:
+        break;
+    }
+    this.setState({ errors, [name]: value });
+  }
+
+
+  validateUser() {
     fetch("http://localhost:3001/users").then(resp => resp.json()).then(users => {
       let authUser = users.find(user => user.name
-        === formData.username) || null;
-      if (authUser.name === formData.username && authUser.password === formData.password) {
-        console.log("loggedInUser");
-        setLoggedInUser({
+        === this.state.username) || null;
+      if (authUser && authUser.name === this.state.username && authUser.password === this.state.password) {
+        this.context.setLoggedInUser({
           loggedInUser: {
-            name: formData.username,
-            password: formData.password
+            name: this.state.username,
+            password: this.state.password
           },
           isLoggedIn: true
         });
-      history.push("/products")
+        this.props.history.push("/products")
       } else {
-        console.log("here")
-        setIsInvalidUser(true);
+        this.context.setLoggedInUser({
+          loggedInUser: {
+            name: "",
+            password: ""
+          }, isLoggedIn: false
+        });
+        toast.error("Invalid credentials")
       }
     });
 
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    if (!validateForm(this.state.errors) || this.state.username === null || this.state.password === null) {
+      toast.error("Please enter the valid data");
+    } else {
+      this.validateUser();
+    }
+  }
 
+  handleUsernameChange = (event) => {
+    this.handleChange(event);
+    this.setState({ username: event.target.value });
 
-  console.log(errors);
+  }
 
+  handlePasswordChange = (event) => {
+    this.handleChange(event);
+    this.setState({ password: event.target.value });
+  }
 
-  return (
-    <MDBContainer className={"login-container"}>
-      <MDBRow className={"login-layout"}>
-        <MDBCol md="6">
-          <form onSubmit={handleSubmit(handleSubmitForm)}>
-            <p className="h5 text-center mb-4 signin-title">Sign in</p>
-            <div className="grey-text">
-              <MDBInput className="hello" required
-                label="Type your email"
-                value={user.username} name="username" icon="envelope" type="text" inputRef={register()}
-              />
-
-
-              <MDBInput
-                value={user.password}
-                label="Type your password" name="password" icon="lock" required type="password" inputRef={register()}
-              />
-              {isInvalidUser &&  <span className="validation-error">This is required</span>}
+  render() {
+    const { errors } = this.state;
+    return (
+      <div className='wrapper'>
+        <div className='form-wrapper'>
+          <h2>Create Account</h2>
+          <form onSubmit={this.handleSubmit} noValidate>
+            <div className='username'>
+              <label htmlFor="username">User Name</label>
+              <input type='text' name='username' onChange={this.handleUsernameChange} noValidate />
+              {errors.username.length > 0 &&
+                <span className='error'>{errors.username}</span>}
             </div>
-            <div className="text-center">
-              <MDBBtn type="submit" value="Submit" >Login</MDBBtn>
-              <MDBBtn onClick={handleResetForm} value="Reset" >Reset</MDBBtn>
+            <div className='password'>
+              <label htmlFor="password">Password</label>
+              <input type='password' name='password' onChange={this.handlePasswordChange} noValidate />
+              {errors.password.length > 0 &&
+                <span className='error'>{errors.password}</span>}
+            </div>
+            <div className='submit'>
+              <MDBBtn color="primary" type="submit" size="lg" >Login</MDBBtn>
             </div>
           </form>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
-  );
+        </div>
+      </div>
+    );
+  }
 }
 
-LoginPage.propTypes={
-  history: PropTypes.object.isRequired
-}
+Login.contextType = UserContext; 

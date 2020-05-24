@@ -40,7 +40,6 @@ function ProductDetails({
 
 
   function handleAddDeviceToCart(device) {
-    debugger;
     const cartDetails = cart.length !== 0 ? getCartDetailsById(cart, device.id) : null;
     let updatedCartDetails;
     if (cartDetails) {
@@ -159,7 +158,6 @@ function mapStateToProps(state, ownProps) {
 
 
 export function getDeviceById(devices, id) {
-  debugger;
   console.log(devices)
   return devices.find(device => device.id === id) || null;
 }

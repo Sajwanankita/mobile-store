@@ -12,11 +12,7 @@ class UserProvider extends Component {
         isLoggedIn: false
     }
 
-    // Method to update state
     setLoggedInUser = user => {
-        // console.log("here " + user.loggedInUser.name)
-        // console.log("here " + user.loggedInUser.password)
-        // console.log("here " + user.isLoggedIn)
         this.setState(prevState => ({ loggedInUser: user.loggedInUser, isLoggedIn: user.isLoggedIn }))
     }
 
