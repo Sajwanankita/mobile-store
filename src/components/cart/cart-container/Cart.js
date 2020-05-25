@@ -99,40 +99,47 @@ export function Cart(props) {
   }
 
   return (
-    <div className="jumbotron">
-      <div class="card">
-        <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Cart Details</h3>
-        <div class="card-body">
-          <div id="table" class="table-editable">
-            <table class="table table-bordered table-responsive-md table-striped text-center">
-              <thead>
-                <tr>
-                  <th class="text-center font-weight-bold">Device</th>
-                  <th class="text-center font-weight-bold">Model</th>
-                  <th class="text-center font-weight-bold">Quantity</th>
-                  <th class="text-center font-weight-bold">Price/Item</th>
-                  <th class="text-center font-weight-bold">Total Price</th>
-                  <th class="text-center font-weight-bold"></th>
-                </tr>
-              </thead>
-              <tbody>
-                {cart.map(cartDetails => {
-                  return (cartDetails && <CartDetails key={cartDetails.id} cartDetails={cartDetails} onRemoveCartDetails={removeDevice}
-                    onUpdateQuantity={updateQuantity}
-                    onDecrementDevice={handleDecrementDevice} onIncrementDevice={handleIncrementDevice}></CartDetails>)
-                })}
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="card cart-total">
-          <span class="card-header text-right font-weight-bold py-4 price">Sub Total ({getTotalItems()}) device(s) :  &#x20b9;  <span>{getTotalPrice()}  </span> </span>
-          <div>
-            {cart.length !== 0 && <MDBBtn color="primary" className="order-button" size="lg" onClick={placeOrder}> Place Order </MDBBtn>}
-          </div>
-        </div>
+    <>
+      {cart.length === 0 && <div className="jumbotron empty-message">
+        Nothing to display !!! Your cart is empty
+        <MDBBtn color="primary" size="lg" href={"/"}>Go Shopping</MDBBtn>
       </div>
-    </div>
+      }
+      {cart.length !== 0 && <div className="jumbotron">
+        <div class="card">
+          <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Cart Details</h3>
+          <div class="card-body">
+            <div id="table" class="table-editable">
+              <table class="table table-bordered table-responsive-md table-striped text-center">
+                <thead>
+                  <tr>
+                    <th class="text-center font-weight-bold">Device</th>
+                    <th class="text-center font-weight-bold">Model</th>
+                    <th class="text-center font-weight-bold">Quantity</th>
+                    <th class="text-center font-weight-bold">Price/Item</th>
+                    <th class="text-center font-weight-bold">Total Price</th>
+                    <th class="text-center font-weight-bold"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {cart.map(cartDetails => {
+                    return (cartDetails && <CartDetails key={cartDetails.id} cartDetails={cartDetails} onRemoveCartDetails={removeDevice}
+                      onUpdateQuantity={updateQuantity}
+                      onDecrementDevice={handleDecrementDevice} onIncrementDevice={handleIncrementDevice}></CartDetails>)
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card cart-total">
+            <span class="card-header text-right font-weight-bold py-4 price">Sub Total ({getTotalItems()}) device(s) :  &#x20b9;  <span>{getTotalPrice()}  </span> </span>
+            <div>
+              {cart.length !== 0 && <MDBBtn color="primary" className="order-button" size="lg" onClick={placeOrder}> Place Order </MDBBtn>}
+            </div>
+          </div>
+        </div>
+      </div>}
+    </>
   );
 }
 

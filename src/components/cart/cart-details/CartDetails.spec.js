@@ -46,7 +46,6 @@ it('should be able to take input from user', () => {
     };
     const searchWrapper = shallow((<CartDetails cartDetails={cartDetails} onUpdateQuantity={mockOnUpdateQuantity}>Ok!</CartDetails>));
     const searchBox = searchWrapper.find('#update-button');
-    console.log(searchBox);
 
     searchBox.simulate('click');
     expect(onInputCallCount).toEqual(1);
@@ -60,7 +59,6 @@ it('should be able to take input from user', () => {
     };
     const searchWrapper = shallow((<CartDetails cartDetails={cartDetails} onIncrementDevice={handleIncrementDevice}>Ok!</CartDetails>));
     const searchBox = searchWrapper.find('.plus');
-    console.log(searchBox);
 
     searchBox.simulate('click');
     expect(onInputCallCount).toEqual(1);
@@ -74,8 +72,6 @@ it('should be able to take input from user', () => {
     };
     const searchWrapper = shallow((<CartDetails cartDetails={cartDetails} onDecrementDevice={handleDecrementDevice}>Ok!</CartDetails>));
     const searchBox = searchWrapper.find('.minus');
-    console.log(searchBox);
-
     searchBox.simulate('click');
     expect(onInputCallCount).toEqual(1);
 });
@@ -88,7 +84,6 @@ it('should be able to take input from user', () => {
     };
     const searchWrapper = shallow((<CartDetails cartDetails={cartDetails} onRemoveCartDetails={removeDevice}>Ok!</CartDetails>));
     const searchBox = searchWrapper.find('#btn-danger');
-    console.log(searchBox);
 
     searchBox.simulate('click');
     expect(onInputCallCount).toEqual(1);

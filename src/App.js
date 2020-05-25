@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, HashRouter } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import LoginPage from "./components/login/Login"
 import ProductDetails from "./components/products/product-details/ProductDetails";
 import Header from "./components/shared/header/Header";

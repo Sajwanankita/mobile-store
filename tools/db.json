@@ -1149,7 +1149,7 @@
       "price": 19000
     },
     {
-      "id": "82",
+      "id": "820",
       "name": "OPPO F15",
       "modelNumber": "SM-M307FZBGINS",
       "colors": [
@@ -1221,44 +1221,8 @@
         "storage": "128 GB",
         "price": 1700
       },
-      "quantity": 2,
-      "id": 1
-    },
-    {
-      "device": {
-        "id": "4",
-        "name": "Huawei Y8p.",
-        "modelNumber": "SM-M307FZBGINS",
-        "colors": [
-          "Red",
-          "Blue"
-        ],
-        "screenSize": "5 inch",
-        "operatingSystem": "Android v8.1 (Oreo)",
-        "ram": "4 GB",
-        "storage": "128 GB",
-        "price": 1700
-      },
-      "quantity": 4,
-      "id": 2
-    },
-    {
-      "device": {
-        "id": "1",
-        "name": "Samsung Galaxy M30s",
-        "modelNumber": "SM-M307FZBGINS",
-        "colors": [
-          "Red",
-          "Blue"
-        ],
-        "screenSize": "5 inch",
-        "operatingSystem": "Android",
-        "ram": "4 GB",
-        "storage": "4GB RAM, 64GB Storage",
-        "price": 5000
-      },
       "quantity": 1,
-      "id": 3
+      "id": 1
     }
   ],
   "users": [

@@ -10,10 +10,6 @@ import
   'bootstrap-css-only/css/bootstrap.min.css';
 import 'primereact/resources/themes/nova-light/theme.css';
 import 'primereact/resources/primereact.min.css';
-// import 'primeicons/primeicons.css';
-import UserProvider from './provider/UserProvider';
-// import * as serviceWorker from './serviceWorker';
-
 import configureStore from "./redux/configureStore";
 
 const store = configureStore();

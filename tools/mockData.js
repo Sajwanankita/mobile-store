@@ -888,7 +888,7 @@ const devices = [
     price: 19000
   },
   {
-    id: "82",
+    id: "820",
     name: "OPPO F15",
     modelNumber: "SM-M307FZBGINS",
     colors: ["Red", "Blue"],

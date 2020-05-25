@@ -80,3 +80,15 @@
 .price{
   float: right;
 }
+
+
+
+.empty-message {
+  font-size: 25px;
+  margin-left: 250px;
+  margin-top: 90px;
+  /* padding-left: 796px; */
+  width: 100%;
+  width: 847px;
+  background-color: initial;
+}

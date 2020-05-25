@@ -7,24 +7,19 @@ import "./ProductListContainer.css";
 import ReactPaginate from 'react-paginate';
 import { InputText } from 'primereact/inputtext';
 import {
-    MDBCardBody, MDBCardTitle, MDBRow, MDBCol, MDBCard, MDBView, MDBBtn,
-    MDBCardImage, MDBDropdownToggle, MDBDropdown, MDBDropdownMenu, MDBDropdownItem
+    MDBDropdownToggle, MDBDropdown, MDBDropdownMenu, MDBDropdownItem, MDBRow
 } from "mdbreact";
+import { ProductCard } from "../product-card/ProductCard";
 
 
-export function ProductListContainer(props) {
-
-
-    const {
-        loadDevices,
-        addToCart,
-        cart
-    } = props;
+export function ProductListContainer({
+    loadDevices,
+    addToCart,
+    cart,
+    ...props
+}) {
 
     const [seachText, setSeachText] = useState("");
-    const [isEmpty, setIsempty] = useState(true);
-    const [array, setArray] = useState([]);
-
     const [paginationAttributes, setPaginationAttributes] = useState({
         offset: 0,
         perPage: 4,
@@ -37,6 +32,17 @@ export function ProductListContainer(props) {
         postData: []
     });
 
+    useEffect(() => {
+        if (props.devices.length === 0) {
+            loadDevices().catch(error => {
+                alert("Loading devices failed" + error);
+            });
+        } else {
+            receivedData();
+        }
+    }, [props.devices, paginationAttributes, loadDevices]);
+
+
     function receivedData() {
         debugger;
         const d = [...props.devices];
@@ -48,48 +54,27 @@ export function ProductListContainer(props) {
         }
 
         const postData = (filteredDevices && filteredDevices.length) > 0 ? filteredDevices.slice(paginationAttributes.offset, paginationAttributes.offset + paginationAttributes.perPage) : [];
-        // const postData = slice;
-        console.log('post data');
-        console.log(postData);
-
 
         setPagination({
             ...pagination,
             pageCount: Math.ceil([...props.devices].length / paginationAttributes.perPage),
             postData
         })
-        console.log(pagination.pageCount);
-
 
     }
-
-    useEffect(() => {
-        if (props.devices.length === 0) {
-            loadDevices().catch(error => {
-                alert("Loading devices failed" + error);
-            });
-        } else {
-            // if () {
-            receivedData();
-            setIsempty(false)
-            // }
-        }
-    }, [props.devices, paginationAttributes, loadDevices, array]);
-
 
 
     function handlePageClick(e) {
         debugger;
         const selectedPage = e.selected;
-        const offset2 = selectedPage * paginationAttributes.perPage;
+        const pageoffset = selectedPage * paginationAttributes.perPage;
 
         setPaginationAttributes({
             ...paginationAttributes,
             currentPage: selectedPage,
-            offset: offset2,
+            offset: pageoffset,
             searchParam: seachText
         });
-        // receivedData();
     };
 
     function handleAddDeviceToCart(device) {
@@ -118,7 +103,6 @@ export function ProductListContainer(props) {
                     ? 1
                     : -1;
             })
-            // setPagination({});
         } else {
             sortedData = [...pagination.postData].sort((a, b) => a.price > b.price
                 ? 1
@@ -135,7 +119,7 @@ export function ProductListContainer(props) {
     function search(event) {
         const inputText = event.target.value;
         setSeachText(inputText);
-        setPaginationAttributes({ ...paginationAttributes, searchParam: event.target.value });
+        setPaginationAttributes({ ...paginationAttributes, searchParam: inputText });
     }
 
     return (
@@ -159,28 +143,7 @@ export function ProductListContainer(props) {
             <MDBRow>
                 {[...pagination.postData].map(device => {
                     return (
-                        <MDBCol md='3' key={device.id} className="product-card">
-                            <MDBCard wide cascade>
-                                <MDBView cascade>
-                                    <MDBCardImage
-                                        cascade
-                                        src="/image.jpg"
-                                        top
-                                        alt="sample photo"
-                                    />
-                                </MDBView>
-
-                                <MDBCardBody cascade className='text-center blue-text'>
-                                    <MDBCardTitle className='card-title'>
-                                        <strong>{device.name}</strong>
-                                    </MDBCardTitle>
-
-                                    <p className='font-weight-bold'>Price : {device.price}</p>
-                                    <MDBBtn color="success" size="lg" href={"/products/" + device.id}>View</MDBBtn>
-                                    <MDBBtn color="success" size="lg" onClick={() => handleAddDeviceToCart(device)}>Add to Cart</MDBBtn>
-                                </MDBCardBody>
-                            </MDBCard>
-                        </MDBCol>
+                        <ProductCard key={device.id} device={device} onAddDeviceToCart={handleAddDeviceToCart}>  </ProductCard>
                     );
                 })}
                 <br></br>
@@ -197,7 +160,7 @@ export function ProductListContainer(props) {
                 containerClassName={"pagination"}
                 subContainerClassName={"pages pagination"}
                 activeClassName={"active"} />
-        </div>
+        </div >
     );
 }
 
