@@ -7,7 +7,6 @@ describe("Login", () => {
         const wrapper = shallow(<Login />);
         const input = wrapper.find("input").at(0);
         input.simulate("change", { target: { value: "admi", name: "username" }, preventDefault: jest.fn() });
-        console.log(wrapper.state().errors.password);
         expect(wrapper.state('errors').username).toEqual("User Name must be at least 5 characters long");
     });
 
@@ -15,7 +14,6 @@ describe("Login", () => {
         const wrapper = shallow(<Login />);
         const input = wrapper.find("input").at(0);
         input.simulate("change", { target: { value: "", name: "username" }, preventDefault: jest.fn() });
-        console.log(wrapper.state().errors.password);
         expect(wrapper.state('errors').username).toEqual("User Name is required");
     });
 
@@ -23,7 +21,6 @@ describe("Login", () => {
         const wrapper = shallow(<Login />);
         const input = wrapper.find("input").at(1);
         input.simulate("change", { target: { value: "admi", name: "password" }, preventDefault: jest.fn() });
-        console.log(wrapper.state().errors.password);
         expect(wrapper.state('errors').password).toEqual("Password must be at least 5 characters long");
     });
 
@@ -31,7 +28,6 @@ describe("Login", () => {
         const wrapper = shallow(<Login />);
         const input = wrapper.find("input").at(1);
         input.simulate("change", { target: { value: "", name: "password" }, preventDefault: jest.fn() });
-        console.log(wrapper.state().errors.password);
         expect(wrapper.state('errors').password).toEqual("Passsword is required");
     });
 
@@ -39,7 +35,6 @@ describe("Login", () => {
         const wrapper = shallow(<Login />);
         const input = wrapper.find("input").at(1);
         input.simulate("change", { target: { value: "", name: "password" }, preventDefault: jest.fn() });
-        console.log(wrapper.state().errors.password);
         expect(wrapper.state('errors').password).toEqual("Passsword is required");
     });
 
@@ -50,7 +45,6 @@ describe("Login", () => {
         const inputPassword = wrapper.find("input").at(1);
         inputName.simulate("change", { target: { value: "admin", name: "username" }, preventDefault: jest.fn() });
         inputPassword.simulate("change", { target: { value: "admin", name: "password" }, preventDefault: jest.fn() });
-        console.log(wrapper.state().errors.password);
         expect(wrapper.state('errors').username).toEqual("");
         expect(wrapper.state('errors').password).toEqual("");
     });
