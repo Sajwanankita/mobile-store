@@ -96,3 +96,14 @@
   .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
     border-radius: unset;
   }
+
+  .empty-message {
+    font-size: 25px;
+    margin-left: 250px;
+    margin-top: 90px;
+    width: 847px;
+    background-color: darkblue;
+    width: 1000px;
+    text-align: center;
+  }
+  

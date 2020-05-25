@@ -20,6 +20,7 @@ export function ProductListContainer({
 }) {
 
     const [seachText, setSeachText] = useState("");
+    const [reloadPage, setReloadPage] = useState(false);
     const [paginationAttributes, setPaginationAttributes] = useState({
         offset: 0,
         perPage: 4,
@@ -55,9 +56,14 @@ export function ProductListContainer({
 
         const postData = (filteredDevices && filteredDevices.length) > 0 ? filteredDevices.slice(paginationAttributes.offset, paginationAttributes.offset + paginationAttributes.perPage) : [];
 
+        if (Math.ceil([...filteredDevices].length / paginationAttributes.perPage) < paginationAttributes.currentPage + 1) {
+            setReloadPage(true);
+        } else {
+            setReloadPage(false);
+        }
         setPagination({
             ...pagination,
-            pageCount: Math.ceil([...props.devices].length / paginationAttributes.perPage),
+            pageCount: Math.ceil([...filteredDevices].length / paginationAttributes.perPage),
             postData
         })
 
@@ -131,7 +137,7 @@ export function ProductListContainer({
                 </span>
                 <MDBDropdown className="drop-dwon">
                     <MDBDropdownToggle caret color="ins" className="hello">
-                        Sort By Price :  &nbsp;
+                        Sort By Price &nbsp;
                      </MDBDropdownToggle>
                     <MDBDropdownMenu color="ins" basic>
                         <MDBDropdownItem onClick={() => sort('ASC')} >Price: High to Low</MDBDropdownItem>
@@ -141,6 +147,9 @@ export function ProductListContainer({
             </div>
 
             <MDBRow>
+                {reloadPage && <div className="jumbotron empty-message">
+                    Oops! The current selected page overflows the searched results. Please select a page..
+            </div>}
                 {[...pagination.postData].map(device => {
                     return (
                         <ProductCard key={device.id} device={device} onAddDeviceToCart={handleAddDeviceToCart}>  </ProductCard>

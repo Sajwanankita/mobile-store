@@ -5,7 +5,7 @@ import { shallow } from "enzyme";
 
 describe('App', () => {
 
-  it('should contain hash router', () => {
+  it('should display empty message when cart have nothing', () => {
     const app = shallow(<App />);
     expect(app.find('Route')).toHaveLength(6);
   });

@@ -19,11 +19,6 @@ export function CartDetails(props) {
         setCartDevices({ ...cartDetails })
     }, [cartDetails]);
 
-    // function onInc4() {
-    //     setQuantity({...cartDetails}.quantity++);
-    //     onInc2({...cartDetails});
-    // }
-
     function updateDeviceQuantity(event) {
         setQuantity(Number(event.target.value));
     }
@@ -31,9 +26,9 @@ export function CartDetails(props) {
 
     return (
         <tr key={cartDevices.quantity} className="cart-details">
-            <td class="pt-3-half">{cartDevices.device.name}</td>
-            <td class="pt-3-half" >{cartDevices.device.modelNumber}</td>
-            <td class="pt-3-half" >
+            <td className="pt-3-half">{cartDevices.device.name}</td>
+            <td className="pt-3-half" >{cartDevices.device.modelNumber}</td>
+            <td className="pt-3-half" >
                 <div>
                     <div className="def-number-input number-input">
                         <button className="minus" onClick={() => onDecrementDevice(cartDevices)} ></button>
@@ -42,14 +37,14 @@ export function CartDetails(props) {
                         <button className="plus" onClick={() => onIncrementDevice(cartDevices)}></button>
                     </div>
                     <button type="button" id={"update-button"}
-                        class="btn btn-primary btn-rounded btn-sm my-0" onClick={() => onUpdateQuantity(quantity, cartDevices)}>Update</button>
+                        className="btn btn-primary btn-rounded btn-sm my-0" onClick={() => onUpdateQuantity(quantity, cartDevices)}>Update</button>
                 </div>
             </td>
-            <td class="pt-3-half" >{cartDevices.device.price}</td>
-            <td class="pt-3-half" >{cartDevices.device.price * cartDevices.quantity}</td>
+            <td className="pt-3-half" >{cartDevices.device.price}</td>
+            <td className="pt-3-half" >{cartDevices.device.price * cartDevices.quantity}</td>
             <td>
-                <span class="table-remove"><button type="button" id={"btn-danger"}
-                    class="btn btn-danger btn-rounded btn-sm my-0" onClick={() => onRemoveCartDetails(cartDevices)}>Remove</button></span>
+                <span className="table-remove"><button type="button" id={"btn-danger"}
+                    className="btn btn-danger btn-rounded btn-sm my-0" onClick={() => onRemoveCartDetails(cartDevices)}>Remove</button></span>
             </td>
         </tr>
     );

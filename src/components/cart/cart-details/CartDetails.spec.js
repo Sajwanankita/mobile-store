@@ -32,66 +32,50 @@ function render(args) {
     return mount(<CartDetails {...props} />);
 }
 
-it('should have a search box', () => {
+it('should have a input box to input quantity', () => {
     const searchWrapper = render();
-    const searchBox = searchWrapper.find('#quantity');
-    expect(searchBox.exists()).toBe(true);
+    const inputBox = searchWrapper.find('#quantity');
+    expect(inputBox.exists()).toBe(true);
 });
 
-it('should be able to take input from user', () => {
-
-    let onInputCallCount = 0;
-    const mockOnUpdateQuantity = () => {
-        onInputCallCount++;
-    };
+it('should be able to call update quantity on update click', () => {
+    const mockOnUpdateQuantity = jest.fn();
     const searchWrapper = shallow((<CartDetails cartDetails={cartDetails} onUpdateQuantity={mockOnUpdateQuantity}>Ok!</CartDetails>));
-    const searchBox = searchWrapper.find('#update-button');
+    const updateBtn = searchWrapper.find('#update-button');
 
-    searchBox.simulate('click');
-    expect(onInputCallCount).toEqual(1);
+    updateBtn.simulate('click');
+    expect(mockOnUpdateQuantity).toHaveBeenCalledTimes(1);
 });
 
-it('should be able to take input from user', () => {
+it('should be able to call increment quantity on plus icon click', () => {
+    const mockOnHandleIncrementDevice = jest.fn();
 
-    let onInputCallCount = 0;
-    const handleIncrementDevice = () => {
-        onInputCallCount++;
-    };
-    const searchWrapper = shallow((<CartDetails cartDetails={cartDetails} onIncrementDevice={handleIncrementDevice}>Ok!</CartDetails>));
-    const searchBox = searchWrapper.find('.plus');
+    const searchWrapper = shallow((<CartDetails cartDetails={cartDetails} onIncrementDevice={mockOnHandleIncrementDevice}>Ok!</CartDetails>));
+    const plusBtn = searchWrapper.find('.plus');
 
-    searchBox.simulate('click');
-    expect(onInputCallCount).toEqual(1);
+    plusBtn.simulate('click');
+    expect(mockOnHandleIncrementDevice).toHaveBeenCalledTimes(1);
 });
 
-it('should be able to take input from user', () => {
+it('should be able to call decrement quantity on minus icon click', () => {
+    const mockOnHandleDecrementDevice = jest.fn();
+    const searchWrapper = shallow((<CartDetails cartDetails={cartDetails} onDecrementDevice={mockOnHandleDecrementDevice}>Ok!</CartDetails>));
+    const minusBtn = searchWrapper.find('.minus');
 
-    let onInputCallCount = 0;
-    const handleDecrementDevice = () => {
-        onInputCallCount++;
-    };
-    const searchWrapper = shallow((<CartDetails cartDetails={cartDetails} onDecrementDevice={handleDecrementDevice}>Ok!</CartDetails>));
-    const searchBox = searchWrapper.find('.minus');
-    searchBox.simulate('click');
-    expect(onInputCallCount).toEqual(1);
+    minusBtn.simulate('click');
+    expect(mockOnHandleDecrementDevice).toHaveBeenCalledTimes(1);
 });
 
-it('should be able to take input from user', () => {
-
-    let onInputCallCount = 0;
-    const removeDevice = () => {
-        onInputCallCount++;
-    };
-    const searchWrapper = shallow((<CartDetails cartDetails={cartDetails} onRemoveCartDetails={removeDevice}>Ok!</CartDetails>));
-    const searchBox = searchWrapper.find('#btn-danger');
-
-    searchBox.simulate('click');
-    expect(onInputCallCount).toEqual(1);
+it('should be able to call remove quantity on remove icon click', () => {
+    const mockOnremoveDevice = jest.fn();
+    const searchWrapper = shallow((<CartDetails cartDetails={cartDetails} onRemoveCartDetails={mockOnremoveDevice}>Ok!</CartDetails>));
+    const removeBtn = searchWrapper.find('#btn-danger');
+    removeBtn.simulate('click');
+    expect(mockOnremoveDevice).toHaveBeenCalledTimes(1);
 });
 
 
-
-it('should be able to take input from user', () => {
+it('should be able to show name n theb detail page', () => {
     const searchWrapper = shallow((<CartDetails cartDetails={cartDetails}>Ok!</CartDetails>));
     const searchBox = searchWrapper.find('td').first();
     expect(searchBox.text()).toEqual("OPPO Reno 2F");

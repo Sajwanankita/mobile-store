@@ -81,7 +81,7 @@ export default class Login extends React.Component {
             password: ""
           }, isLoggedIn: false
         });
-        toast.error("Invalid credentials")
+        toast.error("Invalid credentials. Please try again")
       }
     });
 
@@ -90,7 +90,7 @@ export default class Login extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     if (!validateForm(this.state.errors) || this.state.username === null || this.state.password === null) {
-      toast.error("Please enter the valid data");
+      toast.error("Please fill the required fields");
     } else {
       this.validateUser();
     }

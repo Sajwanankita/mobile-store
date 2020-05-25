@@ -27,7 +27,7 @@ function App() {
             </Switch>
         </div>
       </UserProvider>
-      <ToastContainer autoClose={2000} hideProgressBar></ToastContainer>
+      <ToastContainer className="toaster"  position={"top-center"} autoClose={2000} hideProgressBar></ToastContainer>
     </div>
   );
 }

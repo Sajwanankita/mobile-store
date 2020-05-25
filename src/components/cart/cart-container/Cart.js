@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { connect } from "react-redux";
 import { addToCart, loadCart, removeDeviceFromCart } from "../../../redux/actions/cartActions"
 import "./Cart.css";
-import CartDetails from "../cart-details/CartDetails";
+import { CartDetails } from "../cart-details/CartDetails";
 import { MDBBtn } from "mdbreact";
 import { toast } from "react-toastify";
 import UserContext from "../../../provider/UserProvider";
@@ -49,8 +49,11 @@ export function Cart(props) {
 
   const handleDecrementDevice = (cartDetails) => {
     const quantity = --cartDetails.quantity;
-    updateQuantity(quantity, cartDetails);
-
+    if (quantity === 0) {
+      removeDevice(cartDetails);
+    } else {
+      updateQuantity(quantity, cartDetails);
+    }
   }
 
   const handleIncrementDevice = (cartDetails) => {
@@ -84,6 +87,7 @@ export function Cart(props) {
   }
 
   const placeOrder = () => {
+
     if (loggedInUser.name === "") {
       history.push("/login");
       return;
@@ -92,7 +96,7 @@ export function Cart(props) {
       var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r && 0x3 | 0x8);
       return v.toString(16);
     });
-    toast.success("Your orde with order id" + orderNumber + "has been placed succesfully");
+    toast.success(`Your order with order id${orderNumber}has been placed succesfully`, { autoClose: 5000 });
     cart.forEach(cartDetails => {
       removeDeviceFromCart(cartDetails.id);
     })
@@ -101,24 +105,24 @@ export function Cart(props) {
   return (
     <>
       {cart.length === 0 && <div className="jumbotron empty-message">
-        Nothing to display !!! Your cart is empty
-        <MDBBtn color="primary" size="lg" href={"/"}>Go Shopping</MDBBtn>
+        Nothing to display !!! Your cart is empty &nbsp; &nbsp; &nbsp;
+        <MDBBtn color="primary" size="lg" href={"/"}>Go To Store</MDBBtn>
       </div>
       }
       {cart.length !== 0 && <div className="jumbotron">
-        <div class="card">
-          <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Cart Details</h3>
-          <div class="card-body">
-            <div id="table" class="table-editable">
-              <table class="table table-bordered table-responsive-md table-striped text-center">
+        <div className="card">
+          <h3 className="card-header text-center font-weight-bold text-uppercase py-4 cart-details">Cart Details</h3>
+          <div className="card-body">
+            <div id="table" className="table-editable">
+              <table className="table table-bordered table-responsive-md table-striped text-center">
                 <thead>
                   <tr>
-                    <th class="text-center font-weight-bold">Device</th>
-                    <th class="text-center font-weight-bold">Model</th>
-                    <th class="text-center font-weight-bold">Quantity</th>
-                    <th class="text-center font-weight-bold">Price/Item</th>
-                    <th class="text-center font-weight-bold">Total Price</th>
-                    <th class="text-center font-weight-bold"></th>
+                    <th className="text-center font-weight-bold">Device</th>
+                    <th className="text-center font-weight-bold">Model</th>
+                    <th className="text-center font-weight-bold">Quantity</th>
+                    <th className="text-center font-weight-bold">Price/Item</th>
+                    <th className="text-center font-weight-bold">Total Price</th>
+                    <th className="text-center font-weight-bold"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -131,8 +135,8 @@ export function Cart(props) {
               </table>
             </div>
           </div>
-          <div class="card cart-total">
-            <span class="card-header text-right font-weight-bold py-4 price">Sub Total ({getTotalItems()}) device(s) :  &#x20b9;  <span>{getTotalPrice()}  </span> </span>
+          <div className="card cart-total">
+            <span className="card-header text-right font-weight-bold py-4 price">Sub Total ({getTotalItems()}) device(s) :  &#x20b9;  <span>{getTotalPrice()}  </span> </span>
             <div>
               {cart.length !== 0 && <MDBBtn color="primary" className="order-button" size="lg" onClick={placeOrder}> Place Order </MDBBtn>}
             </div>

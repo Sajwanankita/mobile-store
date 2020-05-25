@@ -1,4 +1,3 @@
-// import { fetchDevices } from "../../../core/services/deviceService";
 import { MDBBtn, MDBCard, MDBCardBody, MDBCol, MDBRow } from "mdbreact";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";

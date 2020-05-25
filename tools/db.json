@@ -1205,26 +1205,7 @@
       "price": 19999
     }
   ],
-  "cart": [
-    {
-      "device": {
-        "id": "2",
-        "name": "Vivo U20",
-        "modelNumber": "SM-M307FZBGINS",
-        "colors": [
-          "Red",
-          "Blue"
-        ],
-        "screenSize": "5 inch",
-        "operatingSystem": "Android",
-        "ram": "4 GB",
-        "storage": "128 GB",
-        "price": 1700
-      },
-      "quantity": 1,
-      "id": 1
-    }
-  ],
+  "cart": [],
   "users": [
     {
       "name": "admin",
